@@ -1,5 +1,5 @@
-# Captain Crunch
-A web app for testing Crunch texture compression and comparing results
+# Sorting Hat
+A web app for sorting images to create deep learning training sets
 
 ## Install and Run
 Simply run:
