@@ -1,0 +1,6 @@
+# Ignore npm packages
+node_modules/
+
+# Ignore all Images, but keep the directory
+public/img/*
+!public/img/.keep

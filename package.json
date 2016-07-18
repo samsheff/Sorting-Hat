@@ -1,0 +1,17 @@
+{
+  "name": "captaincrunch",
+  "version": "1.0.0",
+  "description": "A project to demo crunch's texture compression tech",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sam Sheffres",
+  "license": "ISC",
+  "dependencies": {
+    "connect-busboy": "0.0.2",
+    "express": "^4.13.4",
+    "fs-extra": "^0.30.0",
+    "node-uuid": "^1.4.7"
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="APP">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorting Hat</title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Sorting Hat</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <br><br>
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Image</h2>
+                <img src="" id="imgtosort" width="256px"></img>
+            </div>
+            <div class="col-lg-6">
+                <br>
+                <br>
+                <a href="" id="move-jump">Jump</a>
+                <br>
+                <a href="" id="move-wait">Wait</a>
+                <br>
+                <a href="" id="move-inair">In Air</a>
+                <br>
+                <a href="" id="skip">Skip</a>
+            </div>
+        </div>
+
+        <script>
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                    }
+                }
+            };
+
+            imgPath = getUrlParameter("img");
+            if (imgPath) {
+                $('#imgtosort').prop("src", "/img/"+imgPath);
+                $('#move-wait').prop("href", '/wait?img='+imgPath);
+                $('#move-jump').prop("href", '/jump?img='+imgPath);
+                $('#move-inair').prop("href", '/inair?img='+imgPath);
+                $('#skip').prop("href", '/skip?img='+imgPath);
+            }
+        </script>
+
+        <script>
+            document.onkeydown = checkKey;
+
+            function checkKey(e) {
+
+                e = e || window.event;
+
+                if (e.keyCode == '38') {
+                    // up arrow
+                }
+                else if (e.keyCode == '40') {
+                    // down arrow
+                    document.getElementById("move-wait").click()
+                }
+                else if (e.keyCode == '37') {
+                   // left arrow
+                    document.getElementById("move-jump").click()
+                }
+                else if (e.keyCode == '32') {
+                    // space bar
+                    document.getElementById("skip").click()
+                }
+                else if (e.keyCode == '39') {
+                   // right arrow
+                }
+
+            }
+        </script>
+ </body>
+</html>
+
